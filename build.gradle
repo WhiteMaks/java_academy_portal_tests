@@ -5,15 +5,25 @@ plugins {
 group = 'com.github.whitemaks'
 version = '1.0-SNAPSHOT'
 
-repositories {
-	mavenCentral()
+subprojects {
+	ext {
+		base_http_api_version = "v1.0.0"
+
+		lombok_version = "1.18.42"
+		gson_version = "2.11.0"
+		allure_version = "2.30.0"
+		junit_version = "6.0.0"
+
+		allure_plugin_version = "3.0.0"
+	}
 }
 
-dependencies {
-	testImplementation platform('org.junit:junit-bom:5.10.0')
-	testImplementation 'org.junit.jupiter:junit-jupiter'
-}
+allprojects {
+	repositories {
+		mavenCentral()
 
-test {
-	useJUnitPlatform()
+		maven {
+			url 'https://jitpack.io'
+		}
+	}
 }

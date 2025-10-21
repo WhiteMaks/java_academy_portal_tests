@@ -1,1 +1,6 @@
 rootProject.name = 'java_academy_portal_tests'
+
+include 'common'
+
+include 'academy-portal-service-http-api-steps'
+include 'academy-portal-service-http-api-tests'

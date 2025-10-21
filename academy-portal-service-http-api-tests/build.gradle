@@ -1,0 +1,28 @@
+plugins {
+	id 'java'
+	id 'io.qameta.allure' version "${allure_plugin_version}"
+}
+
+group = 'com.github.whitemaks'
+version = '1.0-SNAPSHOT'
+
+allure {
+	version "${allure_plugin_version}"
+}
+
+dependencies {
+	implementation project(":common")
+
+	implementation project(":academy-portal-service-http-api-steps")
+
+	annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+}
+
+test {
+	systemProperty("junit.jupiter.execution.parallel.enabled", true)
+	systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
+	systemProperty("junit.jupiter.execution.parallel.config.strategy", "fixed")
+	systemProperty("junit.jupiter.execution.parallel.config.fixed.parallelism", Runtime.runtime.availableProcessors().intdiv(2) ?: 1)
+
+	useJUnitPlatform()
+}
