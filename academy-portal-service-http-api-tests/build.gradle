@@ -11,9 +11,11 @@ allure {
 }
 
 dependencies {
+	implementation project(":helper")
 	implementation project(":common")
 
 	implementation project(":academy-portal-service-http-api-steps")
+	implementation project(":academy-portal-service-db-steps")
 
 	annotationProcessor "org.projectlombok:lombok:${lombok_version}"
 }

@@ -8,6 +8,7 @@ version = '1.0-SNAPSHOT'
 subprojects {
 	ext {
 		base_http_api_version = "v1.0.0"
+		base_db_version = "v1.0.0"
 
 		lombok_version = "1.18.42"
 		gson_version = "2.11.0"

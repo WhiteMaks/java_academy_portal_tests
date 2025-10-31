@@ -1,0 +1,9 @@
+{
+  "academy_portal_service": {
+    "host": "localhost:15432",
+    "name": "academy_portal_service",
+    "username": "user",
+    "password": "password",
+    "strict_mapper": true
+  }
+}
