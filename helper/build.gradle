@@ -1,0 +1,13 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.github.whitemaks'
+version = '1.0-SNAPSHOT'
+
+dependencies {
+	implementation project(":common")
+	implementation project(":academy-portal-service-http-api-steps")
+
+	annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+}
