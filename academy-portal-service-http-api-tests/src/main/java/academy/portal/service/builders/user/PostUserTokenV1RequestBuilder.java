@@ -1,6 +1,6 @@
 package academy.portal.service.builders.user;
 
-import academy.portal.service.http.api.models.PostUserTokenV1Request;
+import academy.portal.service.http.api.models.user.PostUserTokenV1Request;
 import common.generators.StringGenerator;
 import helper.User;
 

@@ -1,6 +1,7 @@
 package academy.portal.service.steps;
 
 import academy.portal.service.builders.ErrorResponseBuilder;
+import academy.portal.service.builders.microservice.GetMicroserviceV1ResponseBuilder;
 import academy.portal.service.builders.user.PostUserTokenV1RequestBuilder;
 import academy.portal.service.builders.user.PostUserV1RequestBuilder;
 import academy.portal.service.builders.user.PostUserV1ResponseBuilder;
@@ -18,6 +19,7 @@ public class AcademyPortalSteps extends BaseTestSteps {
 	private final PostUserTokenV1RequestBuilder postUserTokenV1RequestBuilder;
 	private final PostUserV1RequestBuilder postUserV1RequestBuilder;
 
+	private final GetMicroserviceV1ResponseBuilder getMicroserviceV1ResponseBuilder;
 	private final PostUserV1ResponseBuilder postUserV1ResponseBuilder;
 	private final ErrorResponseBuilder errorResponseBuilder;
 
@@ -30,6 +32,7 @@ public class AcademyPortalSteps extends BaseTestSteps {
 		postUserTokenV1RequestBuilder = new PostUserTokenV1RequestBuilder();
 		postUserV1RequestBuilder = new PostUserV1RequestBuilder();
 
+		getMicroserviceV1ResponseBuilder = new GetMicroserviceV1ResponseBuilder(dbSteps);
 		postUserV1ResponseBuilder = new PostUserV1ResponseBuilder(dbSteps);
 		errorResponseBuilder = new ErrorResponseBuilder();
 

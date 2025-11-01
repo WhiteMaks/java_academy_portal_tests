@@ -1,8 +1,8 @@
 package academy.portal.service.builders.user;
 
 import academy.portal.service.db.steps.AcademyPortalServiceDbSteps;
-import academy.portal.service.http.api.models.PostUserV1Request;
-import academy.portal.service.http.api.models.PostUserV1Response;
+import academy.portal.service.http.api.models.user.PostUserV1Request;
+import academy.portal.service.http.api.models.user.PostUserV1Response;
 
 public class PostUserV1ResponseBuilder {
 	private final AcademyPortalServiceDbSteps dbSteps;

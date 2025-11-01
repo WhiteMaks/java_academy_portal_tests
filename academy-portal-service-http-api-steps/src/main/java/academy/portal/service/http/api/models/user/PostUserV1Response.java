@@ -1,4 +1,4 @@
-package academy.portal.service.http.api.models;
+package academy.portal.service.http.api.models.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

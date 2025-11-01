@@ -1,7 +1,7 @@
 package academy.portal.service.http.api;
 
-import academy.portal.service.http.api.models.PostUserTokenV1Request;
-import academy.portal.service.http.api.models.PostUserV1Request;
+import academy.portal.service.http.api.models.user.PostUserTokenV1Request;
+import academy.portal.service.http.api.models.user.PostUserV1Request;
 import base.http.api.BaseHttpApi;
 import base.http.api.RestResponse;
 
@@ -19,8 +19,17 @@ public class AcademyPortalService extends BaseHttpApi {
 	private final String apiUserAdmin = apiUser + "/admin";
 	private final String apiUserToken = apiUser + "/token";
 
+	private final String apiMicroservice = api + "/microservice";
+
 	public AcademyPortalService(String host) {
 		this.host = host;
+	}
+
+	public RestResponse getMicroserviceV1() {
+		var url = host.concat(apiMicroservice)
+			.concat(v1);
+
+		return sendGet(url);
 	}
 
 	public RestResponse postUserAdminV1(PostUserV1Request request) {

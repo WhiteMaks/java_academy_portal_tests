@@ -2,6 +2,11 @@ package academy.portal.service.http.api.steps;
 
 import academy.portal.service.http.api.AcademyPortalService;
 import academy.portal.service.http.api.models.*;
+import academy.portal.service.http.api.models.microservice.GetMicroserviceV1Response;
+import academy.portal.service.http.api.models.user.PostUserTokenV1Request;
+import academy.portal.service.http.api.models.user.PostUserTokenV1Response;
+import academy.portal.service.http.api.models.user.PostUserV1Request;
+import academy.portal.service.http.api.models.user.PostUserV1Response;
 import base.http.api.RestResponse;
 import base.http.api.StatusCode;
 import common.configs.Config;
@@ -13,6 +18,23 @@ public class AcademyPortalServiceHttpApiSteps {
 
 	public AcademyPortalServiceHttpApiSteps() {
 		api = new AcademyPortalService(Config.MICROSERVICE.getAcademyPortalService());
+	}
+
+	public GetMicroserviceV1Response getMicroserviceV1() {
+		return getMicroserviceV1(StatusCode.OK)
+			.getBodyByClass(GetMicroserviceV1Response.class);
+	}
+
+	public ErrorResponse getMicroserviceV1Error(StatusCode expectedStatusCode) {
+		return getMicroserviceV1(expectedStatusCode)
+			.getBodyByClass(ErrorResponse.class);
+	}
+
+	@Step("Отправка запроса на получение информации по микросервису. Ожидающий код ответа [{expectedStatusCode}]")
+	public RestResponse getMicroserviceV1(StatusCode expectedStatusCode) {
+		var response = api.getMicroserviceV1();
+		checkStatusCode(response, expectedStatusCode);
+		return response;
 	}
 
 	public PostUserV1Response postUserAdminV1(PostUserV1Request request) {

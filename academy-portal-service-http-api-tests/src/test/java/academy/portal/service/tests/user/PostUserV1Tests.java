@@ -2,7 +2,7 @@ package academy.portal.service.tests.user;
 
 import academy.portal.service.db.models.enums.Role;
 import academy.portal.service.http.api.models.ErrorResponse;
-import academy.portal.service.http.api.models.PostUserV1Request;
+import academy.portal.service.http.api.models.user.PostUserV1Request;
 import base.http.api.StatusCode;
 import common.generators.StringGenerator;
 import helper.User;

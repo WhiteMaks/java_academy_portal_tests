@@ -1,6 +1,6 @@
 package helper;
 
-import academy.portal.service.http.api.models.PostUserTokenV1Request;
+import academy.portal.service.http.api.models.user.PostUserTokenV1Request;
 import academy.portal.service.http.api.steps.AcademyPortalServiceHttpApiSteps;
 import common.configs.Config;
 import helper.annotations.AUserConfig;

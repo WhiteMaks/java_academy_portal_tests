@@ -7,6 +7,8 @@ import academy.portal.service.db.models.enums.Role;
 import common.configs.Config;
 import io.qameta.allure.Step;
 
+import java.util.List;
+
 public class AcademyPortalServiceDbSteps {
 	private final AcademyPortalServiceDatabase db;
 
@@ -22,6 +24,11 @@ public class AcademyPortalServiceDbSteps {
 	@Step("Поиск пользователя по username [{username}] в бд")
 	public User findUserByUsername(String username) {
 		return db.getJdbi().withExtension(UserDao.class, dao -> dao.findByUsername(username));
+	}
+
+	@Step("Поиск пользователей по role [{role}] в бд")
+	public List<User> findUserByRole(Role role) {
+		return db.getJdbi().withExtension(UserDao.class, dao -> dao.findByRole(role));
 	}
 
 	@Step("удаление пользователей по role [{role}] в бд")
