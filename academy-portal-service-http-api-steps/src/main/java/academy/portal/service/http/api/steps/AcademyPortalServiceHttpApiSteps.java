@@ -3,10 +3,7 @@ package academy.portal.service.http.api.steps;
 import academy.portal.service.http.api.AcademyPortalService;
 import academy.portal.service.http.api.models.*;
 import academy.portal.service.http.api.models.microservice.GetMicroserviceV1Response;
-import academy.portal.service.http.api.models.user.PostUserTokenV1Request;
-import academy.portal.service.http.api.models.user.PostUserTokenV1Response;
-import academy.portal.service.http.api.models.user.PostUserV1Request;
-import academy.portal.service.http.api.models.user.PostUserV1Response;
+import academy.portal.service.http.api.models.user.*;
 import base.http.api.RestResponse;
 import base.http.api.StatusCode;
 import common.configs.Config;
@@ -67,6 +64,23 @@ public class AcademyPortalServiceHttpApiSteps {
 	@Step("Отправка запроса на создание пользователя. Ожидающий код ответа [{expectedStatusCode}]")
 	public RestResponse postUserV1(PostUserV1Request request, String token, StatusCode expectedStatusCode) {
 		var response = api.postUserV1(request, token);
+		checkStatusCode(response, expectedStatusCode);
+		return response;
+	}
+
+	public GetUserV1Response getUserV1(String token) {
+		return getUserV1(token, StatusCode.OK)
+			.getBodyByClass(GetUserV1Response.class);
+	}
+
+	public ErrorResponse getUserV1Error(String token, StatusCode expectedStatusCode) {
+		return getUserV1(token, expectedStatusCode)
+			.getBodyByClass(ErrorResponse.class);
+	}
+
+	@Step("Отправка запроса на получение данных о пользователе. Ожидающий код ответа [{expectedStatusCode}]")
+	public RestResponse getUserV1(String token, StatusCode expectedStatusCode) {
+		var response = api.getUserV1(token);
 		checkStatusCode(response, expectedStatusCode);
 		return response;
 	}

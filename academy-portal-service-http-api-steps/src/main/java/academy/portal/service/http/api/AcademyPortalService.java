@@ -39,6 +39,13 @@ public class AcademyPortalService extends BaseHttpApi {
 		return sendPost(url, request);
 	}
 
+	public RestResponse getUserV1(String token) {
+		var url = host.concat(apiUser)
+			.concat(v1);
+
+		return sendGet(url, generateHeaders(token));
+	}
+
 	public RestResponse postUserV1(PostUserV1Request request, String token) {
 		var url = host.concat(apiUser)
 			.concat(v1);
